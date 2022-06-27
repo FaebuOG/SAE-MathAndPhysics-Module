@@ -79,8 +79,9 @@ public class Waves : MonoBehaviour
                 {
                     if (Octaves[o].alternate)
                     {
-                        // Adds a cosinus wave
                         var per1 = Mathf.PerlinNoise((x * Octaves[o].scale.x) / Dimension, (z * Octaves[o].scale.y) / Dimension) * Mathf.PI * 2f;
+                        
+                        // Adds a cosinus wave
                         y += Mathf.Cos(Octaves[o].speed.magnitude * Time.time) * Octaves[o].height;
                     }
                 }

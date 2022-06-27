@@ -61,6 +61,7 @@
       <workItem from="1655848453897" duration="4505000" />
       <workItem from="1655893942375" duration="7955000" />
       <workItem from="1656183778396" duration="16570000" />
+      <workItem from="1656277918549" duration="1449000" />
     </task>
     <servers />
   </component>
@@ -72,24 +73,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/1_Mathematisches Regelwerk/BoatMechanic/Scripts/Waves.cs</url>
-          <line>18</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/1_Mathematisches Regelwerk/BoatMechanic/Scripts/Waves.cs" initialLine="17" containingFunctionPresentation="method 'Start'">
-            <startOffsets>
-              <option value="374" />
-            </startOffsets>
-            <endOffsets>
-              <option value="392" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
