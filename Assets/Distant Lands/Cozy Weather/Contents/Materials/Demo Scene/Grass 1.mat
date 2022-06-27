@@ -97,10 +97,10 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _BottomColor: {r: 0.1652787, g: 0.40190905, b: 0.29004872, a: 1}
+    - _BottomColor: {r: 0.16071957, g: 0.40474167, b: 0.2795598, a: 1}
     - _Color: {r: 0.44968325, g: 0.6669885, b: 0.5206348, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SnowColor1: {r: 1, g: 1, b: 1, a: 0}
-    - _TopColor: {r: 0.21551484, g: 0.47503713, b: 0.3154217, a: 1}
+    - _TopColor: {r: 0.22003484, g: 0.47695053, b: 0.30255404, a: 1}
     - _WindStrength: {r: 0.2, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []

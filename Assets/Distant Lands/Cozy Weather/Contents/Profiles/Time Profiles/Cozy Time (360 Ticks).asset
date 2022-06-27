@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940bc5c08f23e3947a38c262be3e3dfc, type: 3}
   m_Name: Cozy Time (360 Ticks)
   m_EditorClassIdentifier: 
-  currentTicks: 199.01968
+  currentTicks: 204.97998
   currentDay: 12
   currentYear: 0
-  dayAndTime: 12.552833
+  dayAndTime: 12.569388
   pauseTime: 0
   realisticYear: 0
   useLeapYear: 0

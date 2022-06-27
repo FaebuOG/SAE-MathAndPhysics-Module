@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.9.0/Runtime/Camera/FreeCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -62,6 +63,8 @@
       <workItem from="1655893942375" duration="7955000" />
       <workItem from="1656183778396" duration="16570000" />
       <workItem from="1656277918549" duration="1449000" />
+      <workItem from="1656321434998" duration="451000" />
+      <workItem from="1656367955320" duration="2763000" />
     </task>
     <servers />
   </component>
