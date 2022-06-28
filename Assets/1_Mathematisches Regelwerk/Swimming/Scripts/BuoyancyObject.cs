@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BuoyancyObject : MonoBehaviour
 {
-
     [SerializeField] private Transform[] floaters;
     public float underWaterDrag = 3f;
     public float underWaterAngularDrag = 1f;
@@ -52,9 +48,6 @@ public class BuoyancyObject : MonoBehaviour
             }
         }
         
-
-        
-
         void SwitchState(bool isUnderwater)
         {
             if (isUnderwater)
