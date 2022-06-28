@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floater
+  - windArea
   layers:
   - Default
   - TransparentFX

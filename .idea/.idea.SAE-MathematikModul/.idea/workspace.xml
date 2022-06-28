@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.9.0/Runtime/Camera/FreeCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/1_Mathematisches Regelwerk/Physik Anpassung/Scripts/WindArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -65,7 +66,7 @@
       <workItem from="1656277918549" duration="1449000" />
       <workItem from="1656321434998" duration="451000" />
       <workItem from="1656367955320" duration="3122000" />
-      <workItem from="1656414091349" duration="494000" />
+      <workItem from="1656414091349" duration="5355000" />
     </task>
     <servers />
   </component>
