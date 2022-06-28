@@ -195,7 +195,7 @@ Material:
     - _UnderwaterSurfaceSmoothness: 0.8
     - _WaveCount: 2
     - _WaveDistance: 0.775
-    - _WaveHeight: 0.15
+    - _WaveHeight: 0.68
     - _WaveNormalStr: 0.16
     - _WaveSpeed: 2.3999996
     - _WaveSteepness: 0
