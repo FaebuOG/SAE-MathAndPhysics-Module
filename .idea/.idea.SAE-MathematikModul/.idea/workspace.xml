@@ -9,7 +9,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/1_Mathematisches Regelwerk/Physik Anpassung/Scripts/WindArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -67,7 +66,7 @@
       <workItem from="1656321434998" duration="451000" />
       <workItem from="1656367955320" duration="3122000" />
       <workItem from="1656414091349" duration="5355000" />
-      <workItem from="1656617208559" duration="3411000" />
+      <workItem from="1656617208559" duration="4134000" />
     </task>
     <servers />
   </component>
