@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(GridContainer))]
@@ -17,9 +14,4 @@ public class GridContainerEditor : Editor
         Height = serializedObject.FindProperty("height");
         CellPrefab = serializedObject.FindProperty("cellPrefab");
     }
-    //public override void OnInspectorGUI()
-    //{
-    //    serializedObject.Update();
-
-    //}
 }

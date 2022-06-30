@@ -65,7 +65,7 @@ public class GridContainer : MonoBehaviour
                                     //    for (int y = 1; y < height-1; y++)
                                     //    {
                                     //        int neighbours = 0;
-//
+
                                     //        // Add up all the states in a 3x3 grid
                                     //        for (int i = -1; i <= 1; i++)
                                     //        {
@@ -91,7 +91,7 @@ public class GridContainer : MonoBehaviour
                 grid = updatedGrid;
                 if (amountOfBurnedCells == grid.Length)
                     keepUpdating = false;
-          //  yield return new WaitForSeconds(0.1f);
+            // yield return new WaitForSeconds(0.1f);
             yield return new WaitForSeconds(.5f);
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -44,6 +42,7 @@ public class GridCreatorEditor : Editor
 
         EditorGUILayout.PropertyField(CellPrefab);
         EditorGUILayout.PropertyField(GridPrefab);
+        
         
         if (GUILayout.Button(new GUIContent("GenerateGrid", "generate a new grid")) == true)
             _target.GenerateGrid();

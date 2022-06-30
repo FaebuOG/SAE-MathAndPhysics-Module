@@ -1,28 +1,32 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class BuoyancyObject : MonoBehaviour
+public class FloatingObject : MonoBehaviour
 {
     [SerializeField] private Transform[] floaters;
-    public float underWaterDrag = 3f;
-    public float underWaterAngularDrag = 1f;
+
+    // Air Forces
+    [SerializeField] private float airDrag = 0f;
+    [SerializeField] private float airAngularDrag = 0.05f;
+    // Underwater Forces
+    [SerializeField] private float underWaterDrag = 3f;
+    [SerializeField] private float underWaterAngularDrag = 1f;
+    [SerializeField] private float floatingPower = 15f;
     
-    public float airDrag = 0f;
-    public float airAngularDrag = 0.05f;
+    // Water levels
+    [SerializeField] private float waterHeight = 0;
+    [SerializeField] private int floatersUnderWater;
+    [SerializeField] private bool underWater;
 
-    public float floatingPower = 15f;
+    // Rigidibody
     private Rigidbody rigidbody;
-
-    public float waterHeight = 0;
-    private int floatersUnderWater;
-    private bool underWater;
-
     
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
     }
 
+    // We make the logic in FixedUpdate bc it is Physic based.
     private void FixedUpdate()
     {
         floatersUnderWater = 0;

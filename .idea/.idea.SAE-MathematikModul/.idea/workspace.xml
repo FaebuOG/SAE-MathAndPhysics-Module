@@ -8,7 +8,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.9.0/Runtime/Camera/FreeCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/1_Mathematisches Regelwerk/Physik Anpassung/Scripts/WindArea.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -28,6 +27,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -67,6 +67,7 @@
       <workItem from="1656321434998" duration="451000" />
       <workItem from="1656367955320" duration="3122000" />
       <workItem from="1656414091349" duration="5355000" />
+      <workItem from="1656617208559" duration="3411000" />
     </task>
     <servers />
   </component>
