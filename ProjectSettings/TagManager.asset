@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Floater
   - windArea
+  - ShopArea
+  - customer
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Shop
   - 
   - 
   - 

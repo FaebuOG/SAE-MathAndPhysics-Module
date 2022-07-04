@@ -53,7 +53,7 @@ public class PirateShip : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "windArea")
+        if (other.CompareTag("windArea"))
         {
             windZone = other.gameObject;
             inWindZone = true;
@@ -61,7 +61,7 @@ public class PirateShip : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "windArea")
+        if (other.CompareTag("windArea"))
             inWindZone = false;
     }
 }
