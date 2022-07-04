@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
 {
@@ -29,12 +28,13 @@ public class Customer : MonoBehaviour
     [SerializeField] private Transform spawnPos;
 
     
+    
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         
-        // events
-        //GameEvents.current.onShopTriggerEnter += OnShopEntrace;
+        
+        
     }
     private void Update()
     {
@@ -50,12 +50,28 @@ public class Customer : MonoBehaviour
                 StartCoroutine(WaitingInLine());
                 break;
             case CustomerStates.WalkingRandom:
+                
                 break;
             case CustomerStates.Talking:
                 break;
         }
     }
 
+    public void SetAwakeState()
+    {
+        if (ShopManager.Instance.StoreIsOpen)
+        {
+            int random = Random.Range(0, 100);
+            if (random <= ShopManager.Instance.ShopPopularityPercent) // % chance the customer will visit the store
+            {
+                GoToShop();
+            }
+        }
+        
+        // if the customer doesnt know the shop or wont visit yet 
+        WalkAround();
+        
+    }
     public void GoToShop()
     {
         customerStates = CustomerStates.OnTheWayToShop;
@@ -64,6 +80,11 @@ public class Customer : MonoBehaviour
     public void GoHome()
     {
         customerStates = CustomerStates.OnTheWayHome;
+    }
+
+    public void WalkAround()
+    {
+        
     }
 
     IEnumerator WaitingInLine()
@@ -80,10 +101,4 @@ public class Customer : MonoBehaviour
         }
         
     }
-
-    //private void OnShopEntrace(int id)
-    //{
-    //    if(id == this.ID)
-    //    customerStates = CustomerStates.WaitingInLine;
-    //}
 }

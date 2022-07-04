@@ -8,6 +8,8 @@ TagManager:
   - windArea
   - ShopArea
   - customer
+  - Test
+  - Kunde
   layers:
   - Default
   - TransparentFX
