@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,33 +8,33 @@ public class CustomerSpawner : MonoBehaviour
     List<GameObject> customers = new List<GameObject>();
     
     [SerializeField] private GameObject customerPrefab;
-    private int customerCount;
-    public int maxCustomerCount;
+    [SerializeField] private int populationCount = 0;
+    [SerializeField] private int maxPopulationCount;
+    private bool gameIsRunning = true;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        SpawnCustomer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void SpawnCustomer()
-    {
-        if (customerCount < maxCustomerCount)
-        {
-            StartCoroutine(SpawnNewCustomer());
-        }
+        StartCoroutine(SpawnNewCustomer());
     }
 
     IEnumerator SpawnNewCustomer()
     {
-        yield return new WaitForSeconds(5);
-        GameObject newCustomer = Instantiate(customerPrefab);
-
+        while (gameIsRunning)
+        {
+            if (!gameIsRunning)
+                break;
+            
+            if (populationCount < maxPopulationCount)
+            {
+                yield return new WaitForSeconds(5);
+                Instantiate(customerPrefab, new Vector3(-46f, 1f, -5f), Quaternion.identity);
+                populationCount += 1;
+            }
+            else
+            {
+                yield return new WaitForSeconds(5);
+            }
+        }
+        
     }
 }

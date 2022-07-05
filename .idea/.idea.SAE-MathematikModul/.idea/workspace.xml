@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../TSC/Assets/_TSC/_Scripts/Match/Powerpoints/SpawnPowerfields.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/Scripts/Customer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,7 +71,8 @@
       <workItem from="1656367955320" duration="3122000" />
       <workItem from="1656414091349" duration="5355000" />
       <workItem from="1656617208559" duration="4134000" />
-      <workItem from="1656938466280" duration="11662000" />
+      <workItem from="1656938466280" duration="12059000" />
+      <workItem from="1656969174009" duration="9309000" />
     </task>
     <servers />
   </component>
