@@ -77,7 +77,7 @@ Material:
     - _FogDepthMultiplier: 1
     - _FogIntensity: 1
     - _FogOffset: 0.85
-    - _FogSmoothness: 100
+    - _FogSmoothness: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
