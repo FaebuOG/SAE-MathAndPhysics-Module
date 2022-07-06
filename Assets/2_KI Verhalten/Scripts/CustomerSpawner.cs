@@ -27,7 +27,7 @@ public class CustomerSpawner : MonoBehaviour
             if (populationCount < maxPopulationCount)
             {
                 yield return new WaitForSeconds(5);
-                Instantiate(customerPrefab, new Vector3(-46f, 1f, -5f), Quaternion.identity);
+                Instantiate(customerPrefab, new Vector3(-72f, 1f, 20f), Quaternion.identity);
                 populationCount += 1;
             }
             else
