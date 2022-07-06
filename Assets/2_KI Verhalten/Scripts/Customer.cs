@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Customer : MonoBehaviour
 {
+    public static Customer Instance;
     public enum CustomerStates
     {
         Spawned,
@@ -19,28 +20,42 @@ public class Customer : MonoBehaviour
         OnTheWayHome
         
     }
-
-    private List<Vector3> spots = new List<Vector3>();
     
-    [SerializeField] private Vector3 moveTo;
-    private bool customerServed = false;
-    private bool hasTarget = false;
-    private NavMeshAgent navMeshAgent;
+    //public MovementPoint[] Positions;
+    //int totalWeight = 0;
+    
+    private List<Vector3> spots = new List<Vector3>();
     public CustomerStates customerStates;
+    [SerializeField] private Vector3 moveTo;
+    [SerializeField] private bool customerServed = false;
+    [SerializeField] private bool hasTarget = false;
+    private NavMeshAgent navMeshAgent;
+    
+    // Customer stats
+    [SerializeField] [Range(0,100)] private float customerSatisfaction;
     
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         
+        // gets the total weight of all positions
+        //for (int i = 0; i < Positions.Length; i++) {
+        //    if (Positions[i]!=null) {
+        //        totalWeight += Positions[i].Weight;
+        //    }
+        //}
+        
+        if (Instance == null) 
+            Instance = this;
+        
         
         spots.Add(new Vector3(0f,1f,7f)); // 0 -> Shop
-        spots.Add(new Vector3(-5.5f, 1f, -11.5f)); // 1 -> spot 1
+        spots.Add(new Vector3(-7.5f, 1f, -11.5f)); // 1 -> spot 1
         spots.Add(new Vector3(-38.5f,1f,11.5f)); // 2 -> spot2
-        spots.Add(new Vector3(-25f,1f,-4f));
-        spots.Add(new Vector3(20f,1f,-10f));
-        spots.Add(new Vector3(-67f,1f,-7.5f));
+        spots.Add(new Vector3(-28f,1f,-4f));
+        spots.Add(new Vector3(23f,1f,-10f));
+        spots.Add(new Vector3(-72f,1f,-7.5f));
     }
-
     private void Update()
     {
         switch (customerStates)
@@ -50,6 +65,8 @@ public class Customer : MonoBehaviour
                 break;
             case CustomerStates.WalkingAround:
                 StartCoroutine(WalkAround());
+                
+                
                 break;
             case CustomerStates.Idling:
                 break;
@@ -71,6 +88,28 @@ public class Customer : MonoBehaviour
             
         }
     }
+    
+    //public static Transform GetRandomTransform() {
+    //    return Instance.GetRandomPoint();
+    //}
+    //
+    //public Transform GetRandomPoint() {
+    //
+    //    int rnd = Random.Range(0, totalWeight);
+    //    Transform returnValue = null;
+    //
+    //    for (int i = 0; i < Positions.Length; i++) {
+    //        if (Positions[i] != null) {
+    //            rnd -= Positions[i].Weight;
+    //        }
+    //        if (rnd<=0) {
+    //            returnValue = Positions[i].Target;
+    //            break;
+    //        }
+    //    }
+    //
+    //    return returnValue;
+    //}
 
     public void GoToShop()
     {
@@ -99,36 +138,25 @@ public class Customer : MonoBehaviour
     IEnumerator WalkAround()
     {
         int random;
-        int positionIndex;
-        
+
         if (hasTarget == false)
         {
             // give the npc a new target to visit
-            positionIndex = Random.Range(0, spots.Count-1);
-            Debug.Log(positionIndex);
-            //if (positionIndex == 0) // small chance of visiting the store
-            //{
-            //    customerStates = CustomerStates.OnTheWayToShop;
-            //}
-            
+            var positionIndex = Random.Range(0, spots.Count-1);
             moveTo = spots[positionIndex];
             hasTarget = true;
         }
         else
         {
             navMeshAgent.destination = moveTo;
-            
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(5f);
             if (Vector3.Distance(transform.position, moveTo) < 2)
             {
-                //positionIndex = Random.Range(0, spots.Count-1); // change target pos with a small % chance of visiting the store
+                navMeshAgent.destination = Vector3.zero;
+                yield return new WaitForSeconds(20f);
                 hasTarget = false;
             }
-
-            
-
         }
-            
     }
 
     IEnumerator WaitingInLine()

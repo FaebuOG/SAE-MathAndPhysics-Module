@@ -143,11 +143,11 @@ Material:
     - _Offset: 0
     - _Parallax: 0.02
     - _PatchworkAmount: 1
-    - _PatchworkBias: 0.341
+    - _PatchworkBias: 1
     - _PatchworkBias1: 0.532
-    - _PatchworkHeight: 0.84753823
+    - _PatchworkHeight: 0.6860465
     - _PatchworkPower: 1
-    - _PatchworkVariation: 0.84696186
+    - _PatchworkVariation: 0.7476562
     - _Power: 0.364
     - _RainbowIntensity: 0
     - _RainbowSize: 78.7
@@ -155,8 +155,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SunFlareFalloff: 25.5
-    - _SunSize: 0.87
+    - _SunFlareFalloff: 43.7
+    - _SunSize: 1
     - _TextureAmount: 1
     - _UVSec: 0
     - _WindSpeed: 3
