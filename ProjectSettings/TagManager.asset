@@ -10,6 +10,9 @@ TagManager:
   - customer
   - Test
   - Kunde
+  - Waypoint
+  - KeyLocation
+  - DecisionArea
   layers:
   - Default
   - TransparentFX

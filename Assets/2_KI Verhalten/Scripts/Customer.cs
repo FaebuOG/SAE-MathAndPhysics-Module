@@ -13,9 +13,9 @@ public class Customer : MonoBehaviour
         Spawned,
         WalkingAround,
         Idling,
-        OnTheWayToShop,
-        WaitingOutside,
-        WaitingInLine,
+        OnTheWayToStore,
+        WaitingOutsideStore,
+        WaitingInsideStore,
         Served,
         OnTheWayHome
         
@@ -65,19 +65,17 @@ public class Customer : MonoBehaviour
                 break;
             case CustomerStates.WalkingAround:
                 StartCoroutine(WalkAround());
-                
-                
                 break;
             case CustomerStates.Idling:
                 break;
-            case CustomerStates.OnTheWayToShop:
+            case CustomerStates.OnTheWayToStore:
                 GoToShop();
                 break;
-            case CustomerStates.WaitingOutside:
+            case CustomerStates.WaitingOutsideStore:
                 WaitOutsideOfTheStore();
                 break;
-            case CustomerStates.WaitingInLine:
-                StartCoroutine(WaitingInLine());
+            case CustomerStates.WaitingInsideStore:
+                StartCoroutine(WaitingInsideStore());
                 break;
             case CustomerStates.Served:
 
@@ -121,7 +119,7 @@ public class Customer : MonoBehaviour
         else
         {
             Debug.Log("Sorry, the store is currently closed. You must wait outside");
-            customerStates = CustomerStates.WaitingOutside;
+            customerStates = CustomerStates.WaitingOutsideStore;
         }
     }
 
@@ -159,7 +157,7 @@ public class Customer : MonoBehaviour
         }
     }
 
-    IEnumerator WaitingInLine()
+    IEnumerator WaitingInsideStore()
     {
         if (customerStates != CustomerStates.Served)
         {
@@ -172,8 +170,9 @@ public class Customer : MonoBehaviour
             GoHome();
             yield break;
         }
-        
     }
+    
+    
 }
 
     

@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance;
 
-    private Customer customer;
+    private CustomerController customerController;
     private List<Customer> customers = new List<Customer>();
     
     
@@ -28,20 +28,22 @@ public class ShopManager : MonoBehaviour
         // if a customer enters the store
         if(other.CompareTag("customer"))
         {
+            customerController = other.GetComponent<CustomerController>();
             if (CustomerInsideTheStoreCount < MaxCustomerInsideTheStore)
             {
-                // get the customer script and put him in the line
-                customer = other.GetComponent<Customer>();
-                customer.customerStates = Customer.CustomerStates.WaitingInLine;
+                // put him in the line
+                customerController.customerStates = CustomerController.CustomerStates.WaitingInsideStore;
             }
             else
             {
                 // let him wait outside
             }
            
+            
         }
     }
 
+    
     public void OpenShop()
     {
         StoreIsOpen = true;

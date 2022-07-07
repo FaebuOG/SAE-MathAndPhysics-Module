@@ -5,16 +5,15 @@ using Random = UnityEngine.Random;
 
 public class DecisionZone : MonoBehaviour
 {
-    private Customer customer;
+    private CustomerController customerController;
     
     private void OnTriggerEnter(Collider other)
     {
-        // if a customer enters the store
         if(other.CompareTag("customer"))
         {
             // get the customer script
-            customer = other.GetComponent<Customer>();
-            if (customer.customerStates == Customer.CustomerStates.Spawned)
+            customerController = other.GetComponent<CustomerController>();
+            if (customerController.customerStates == CustomerController.CustomerStates.Spawned)
             {
                 VisitShopOrNot();
             }
@@ -26,12 +25,12 @@ public class DecisionZone : MonoBehaviour
         int random = Random.Range(0, 100);
         if (random <= ShopManager.Instance.ShopPopularityPercent) // % chance the customer knows & will visit the store
         {
-            customer.customerStates = Customer.CustomerStates.OnTheWayToShop;
+            customerController.customerStates = CustomerController.CustomerStates.OnTheWayToStore;
         }
         else
         {
             // if the npc doesnt know or wont visit the store he should just walk around.
-            customer.customerStates = Customer.CustomerStates.WalkingAround;
+            customerController.customerStates = CustomerController.CustomerStates.WalkingAround;
         }
     }
 }
