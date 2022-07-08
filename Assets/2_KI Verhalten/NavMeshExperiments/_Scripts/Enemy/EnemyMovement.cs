@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))] [RequireComponent(typeof(AgentLinkMover))]
 public class EnemyMovement : MonoBehaviour
 {
+    public Transform Player;
     [SerializeField] private Animator animator;
     private NavMeshAgent navMeshAgent;
     private AgentLinkMover agentLinkMover;
@@ -17,7 +18,8 @@ public class EnemyMovement : MonoBehaviour
     private const string isWalking = "isWalking";
     private const string jump = "jump";
     private const string landed = "landed";
-    
+
+    private Coroutine followCoroutine;
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -26,9 +28,17 @@ public class EnemyMovement : MonoBehaviour
         agentLinkMover.OnLinkStart += HandleLinkStart;
         agentLinkMover.OnLinkEnd += HandleLinkEnd;
     }
-    private void Start()
+
+    public void StartChasing()
     {
-        StartCoroutine(FollowTarget());
+        if (followCoroutine == null)
+        {
+            followCoroutine = StartCoroutine(FollowTarget());
+        }
+        else
+        {
+            Debug.LogWarning("called start chasing on enemy that is already chasing, this is likely a bug");
+        }
     }
     private void Update()
     {
