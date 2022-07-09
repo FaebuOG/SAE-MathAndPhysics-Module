@@ -8,12 +8,11 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform Player;
-    [SerializeField] private Animator animator;
     private NavMeshAgent navMeshAgent;
     private AgentLinkMover agentLinkMover;
+    [SerializeField] private Animator animator;
     
-    [SerializeField] private Transform target;
-    [SerializeField] private float UpdateSpeed = .1f; // how frequently it gets updated
+    public float UpdateRate = .1f; // how frequently it gets updated
 
     private const string isWalking = "isWalking";
     private const string jump = "jump";
@@ -47,10 +46,10 @@ public class EnemyMovement : MonoBehaviour
     
     IEnumerator FollowTarget()
     {
-        WaitForSeconds wait = new WaitForSeconds(UpdateSpeed);
+        WaitForSeconds wait = new WaitForSeconds(UpdateRate);
         while (enabled)
         {
-            navMeshAgent.SetDestination(target.transform.position);
+            navMeshAgent.SetDestination(Player.transform.position);
 
             yield return wait;
         }

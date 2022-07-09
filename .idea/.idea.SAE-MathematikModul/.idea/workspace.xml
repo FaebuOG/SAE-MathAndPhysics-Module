@@ -11,6 +11,7 @@
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TSC/Assets/_TSC/_Scripts/Match/Powerpoints/SpawnPowerfields.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/EnemyScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/MovementPoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/MovementController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -76,7 +77,8 @@
       <workItem from="1657055906772" duration="6379000" />
       <workItem from="1657112540819" duration="15001000" />
       <workItem from="1657275398975" duration="3678000" />
-      <workItem from="1657310023176" duration="6582000" />
+      <workItem from="1657310023176" duration="7681000" />
+      <workItem from="1657363001959" duration="1785000" />
     </task>
     <servers />
   </component>
