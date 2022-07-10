@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         agentLinkMover = GetComponent<AgentLinkMover>();
 
         agentLinkMover.OnLinkStart += HandleLinkStart;
-        agentLinkMover.OnLinkEnd += HandleLinkEnd;
+        agentLinkMover.OnLinkEnd += HandleLinkEnd; 
     }
 
     public void StartChasing()
@@ -50,11 +50,11 @@ public class EnemyMovement : MonoBehaviour
         while (enabled)
         {
             navMeshAgent.SetDestination(Player.transform.position);
-
             yield return wait;
         }
     }
     
+    // Handle links from nav meshs (jumping between nav meshs)
     private void HandleLinkStart()
     {
         animator.SetTrigger(jump);
@@ -62,5 +62,6 @@ public class EnemyMovement : MonoBehaviour
     private void HandleLinkEnd()
     {
         animator.SetTrigger(landed);
+        Debug.Log(agentLinkMover);
     }
 }

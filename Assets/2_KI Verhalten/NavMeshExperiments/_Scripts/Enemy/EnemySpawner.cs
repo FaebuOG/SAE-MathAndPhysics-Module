@@ -8,8 +8,8 @@ using Random = System.Random;
 public class EnemySpawner : MonoBehaviour
 {
    public Transform Player;
-   public int NumberOfEnemiesToSpawn = 5;
-   public float SpawnDelay = 1f;
+   public int NumberOfEnemiesToSpawn;
+   public float SpawnDelay;
    
    public SpawnMethod EnemySpawnMethod = SpawnMethod.RoundRobin;
    
@@ -55,13 +55,11 @@ public class EnemySpawner : MonoBehaviour
    private void SpawnRoundRobinEnemy(int spawnedEnemies)
    {
       int spawnIndex = spawnedEnemies % EnemyPrefabs.Count;
-
       DoSpawnEnemy(spawnIndex);
    }
    private void SpawnRandomEnemy()
    {
       DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count));
-      
    }
    
    private void DoSpawnEnemy(int spawnIndex)

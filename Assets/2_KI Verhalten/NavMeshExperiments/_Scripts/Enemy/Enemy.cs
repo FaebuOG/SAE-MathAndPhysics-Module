@@ -15,11 +15,9 @@ public class Enemy : PoolableObject
    {
       SetupAgentFromConfiguration();
    }
-
    public override void OnDisable()
    {
       base.OnDisable();
-
       Agent.enabled = false;
    }
 
@@ -37,7 +35,6 @@ public class Enemy : PoolableObject
       Agent.stoppingDistance = EnemyScriptableObject.StoppingDistance;
         
       Movement.UpdateRate = EnemyScriptableObject.AIUpdateInterval;
-
       Health = EnemyScriptableObject.Health;
    }
 }
