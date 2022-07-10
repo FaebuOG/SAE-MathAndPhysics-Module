@@ -17,10 +17,8 @@ public class ObjectPool
     public static ObjectPool CreateInstance(PoolableObject Prefab, int Size)
     {
         ObjectPool pool = new ObjectPool(Prefab, Size);
-
         GameObject poolGameObject = new GameObject(Prefab + " Pool");
         pool.CreateObjects(poolGameObject);
-
         return pool;
     }
 
@@ -34,17 +32,15 @@ public class ObjectPool
         }
     }
 
+    // Get & Return Methods
     public PoolableObject GetObject()
     {
+        // gets a gameobject from pool
         PoolableObject instance = AvailableObjectsPool[0];
-
         AvailableObjectsPool.RemoveAt(0);
-
         instance.gameObject.SetActive(true);
-
         return instance;
     }
-
     public void ReturnObjectToPool(PoolableObject Object)
     {
         AvailableObjectsPool.Add(Object);

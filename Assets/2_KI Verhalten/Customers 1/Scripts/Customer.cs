@@ -171,8 +171,6 @@ public class Customer : MonoBehaviour
             yield break;
         }
     }
-    
-    
 }
 
     
