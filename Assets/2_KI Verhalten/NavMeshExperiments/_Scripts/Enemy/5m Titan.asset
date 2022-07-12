@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c4f5606a149946358d00fe15a97b7fa, type: 3}
-  m_Name: 4m Titan
+  m_Name: 5m Titan
   m_EditorClassIdentifier: 
-  Health: 120
+  Health: 140
   AIUpdateInterval: 0.1
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1
-  AvoidancePriority: 40
+  AvoidancePriority: 50
   BaseOffset: 0
-  Height: 4
+  Height: 5
   ObstacleAvoidanceType: 1
   Radius: 0.5
   Speed: 2.6

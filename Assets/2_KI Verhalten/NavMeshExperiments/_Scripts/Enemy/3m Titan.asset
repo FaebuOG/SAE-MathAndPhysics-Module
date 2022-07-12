@@ -17,10 +17,10 @@ MonoBehaviour:
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1
-  AvoidancePriority: 50
+  AvoidancePriority: 30
   BaseOffset: 0
   Height: 3
-  ObstacleAvoidanceType: 1
+  ObstacleAvoidanceType: 2
   Radius: 0.5
   Speed: 2.5
   StoppingDistance: 0.5
