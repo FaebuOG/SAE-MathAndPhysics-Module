@@ -38111,11 +38111,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 4005078239785202}
-  NumberOfEnemiesToSpawn: 2
-  SpawnDelay: 5
+  NumberOfEnemiesToSpawn: 10
+  SpawnDelay: 15
   EnemySpawnMethod: 0
   EnemyPrefabs:
   - {fileID: 5921052386097139471, guid: b9a9ceaab99704164a7dd6a50b5e3021, type: 3}
+  - {fileID: 7340071823360266085, guid: 0a55fe9974cbe44e0979183dc1cf4f72, type: 3}
 --- !u!1 &1099901173
 GameObject:
   m_ObjectHideFlags: 0
@@ -60703,7 +60704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 0}
   Damage: 30
-  AttackDelay: 0.5
+  AttackDelay: 1.5
 --- !u!135 &1829070260
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72212,7 +72213,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

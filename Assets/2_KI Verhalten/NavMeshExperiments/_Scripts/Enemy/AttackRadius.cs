@@ -22,7 +22,7 @@ public class AttackRadius : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
-        Debug.Log("Entered in Attack Radius: " + other.gameObject.name);
+        Debug.Log(other.gameObject.name + " entered in AttackRadius from: " + gameObject.name);
         
         if (damageable != null)
         {
@@ -51,15 +51,18 @@ public class AttackRadius : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        // Attack delay
         WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
-
         yield return Wait;
 
+        // for the closest target
         IDamageable closestDamageable = null;
         float closestDistance = float.MaxValue;
 
+        // as long as 
         while (Damageables.Count > 0)
         {
+            // gets the closest target
             for (int i = 0; i < Damageables.Count; i++)
             {
                 Transform damageableTransform = Damageables[i].GetTransform();

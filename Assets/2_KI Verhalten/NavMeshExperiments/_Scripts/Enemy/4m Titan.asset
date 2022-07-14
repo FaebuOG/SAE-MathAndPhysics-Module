@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: 4m Titan
   m_EditorClassIdentifier: 
   Health: 400
+  AttackDelay: 4
+  Damage: 5
+  AttackRadius: 1.5
   AIUpdateInterval: 0.1
   Acceleration: 8
   AngularSpeed: 120
