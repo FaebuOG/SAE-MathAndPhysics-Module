@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4f5606a149946358d00fe15a97b7fa, type: 3}
   m_Name: 3m Titan
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 300
   AIUpdateInterval: 0.1
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1
-  AvoidancePriority: 30
+  AvoidancePriority: 3
   BaseOffset: 0
   Height: 3
   ObstacleAvoidanceType: 2
-  Radius: 0.5
+  Radius: 0.3
   Speed: 2.5
-  StoppingDistance: 0.5
+  StoppingDistance: 2

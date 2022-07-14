@@ -20,10 +20,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Shop
-  - 
-  - 
-  - 
+  - Player
+  - PlayerAttackRadius
+  - Titan
+  - TitanAttackRadius
   - 
   - 
   - 
