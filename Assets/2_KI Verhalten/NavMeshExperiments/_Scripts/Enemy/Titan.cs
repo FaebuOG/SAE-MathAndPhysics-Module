@@ -2,38 +2,27 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : PoolableObject, IDamageable
+public class Titan : PoolableObject, IDamageable
 {
     public AttackRadius AttackRadius;
     public Animator Animator;
-    public EnemyMovement Movement;
+    public TitanMovement Movement;
     public NavMeshAgent Agent;
     public EnemyScriptableObject EnemyScriptableObject;
     public int Health = 100;
 
-    private Coroutine LookCoroutine;
-    private const string ATTACK_TRIGGER = "attack";
+    private Coroutine lookCoroutine;
+    private const string attackTrigger = "attack";
 
     private void Awake()
     {
         AttackRadius.OnAttack += OnAttack;
     }
 
-    private void OnAttack(IDamageable Target)
+    #region Orientation
+    private IEnumerator LookAt(Transform target)
     {
-        Animator.SetTrigger(ATTACK_TRIGGER);
-
-        if (LookCoroutine != null)
-        {
-            StopCoroutine(LookCoroutine);
-        }
-
-        LookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
-    }
-
-    private IEnumerator LookAt(Transform Target)
-    {
-        Quaternion lookRotation = Quaternion.LookRotation(Target.position - transform.position);
+        Quaternion lookRotation = Quaternion.LookRotation(target.position - transform.position);
         float time = 0;
 
         while (time < 1)
@@ -46,7 +35,14 @@ public class Enemy : PoolableObject, IDamageable
 
         transform.rotation = lookRotation;
     }
-
+    
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+    #endregion
+    
+    #region Enable/Disable
     public virtual void OnEnable()
     {
         SetupAgentFromConfiguration();
@@ -58,7 +54,32 @@ public class Enemy : PoolableObject, IDamageable
 
         Agent.enabled = false;
     }
+    #endregion
+    
+    #region Attack
+    private void OnAttack(IDamageable target)
+    {
+        Animator.SetTrigger(attackTrigger);
 
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+        }
+
+        lookCoroutine = StartCoroutine(LookAt(target.GetTransform()));
+    }
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+
+        if (Health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    #endregion
+    
+    // Gets all the values from the Titan Scriptable Object
     public virtual void SetupAgentFromConfiguration()
     {
         Agent.acceleration = EnemyScriptableObject.Acceleration;
@@ -79,20 +100,5 @@ public class Enemy : PoolableObject, IDamageable
         (AttackRadius.Collider == null ? AttackRadius.GetComponent<SphereCollider>() : AttackRadius.Collider).radius = EnemyScriptableObject.AttackRadius;
         AttackRadius.AttackDelay = EnemyScriptableObject.AttackDelay;
         AttackRadius.Damage = EnemyScriptableObject.Damage;
-    }
-
-    public void TakeDamage(int Damage)
-    {
-        Health -= Damage;
-
-        if (Health <= 0)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    public Transform GetTransform()
-    {
-        return transform;
     }
 }

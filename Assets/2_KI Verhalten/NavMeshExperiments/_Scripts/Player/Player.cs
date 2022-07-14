@@ -3,37 +3,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
 {
-    [SerializeField]
-    private AttackRadius AttackRadius;
-    [SerializeField]
-    private Animator Animator;
-    private Coroutine LookCoroutine;
-
-    [SerializeField]
-    private int Health = 300;
-
-    private const string ATTACK_TRIGGER = "attack";
+    [SerializeField] private AttackRadius attackRadius;
+    [SerializeField] private Animator animator;
+    [SerializeField] private int health = 300;
+    
+    private Coroutine lookCoroutine;
+    private const string attackTrigger = "attack";
 
     private void Awake()
     {
-        AttackRadius.OnAttack += OnAttack;
+        attackRadius.OnAttack += OnAttack;
     }
-
-    private void OnAttack(IDamageable Target)
+    
+    private IEnumerator LookAt(Transform target)
     {
-        Animator.SetTrigger(ATTACK_TRIGGER);
-
-        if (LookCoroutine != null)
-        {
-            StopCoroutine(LookCoroutine);
-        }
-
-        LookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
-    }
-
-    private IEnumerator LookAt(Transform Target)
-    {
-        Quaternion lookRotation = Quaternion.LookRotation(Target.position - transform.position);
+        Quaternion lookRotation = Quaternion.LookRotation(target.position - transform.position);
         float time = 0;
 
         while (time < 1)
@@ -47,16 +31,29 @@ public class Player : MonoBehaviour, IDamageable
         transform.rotation = lookRotation;
     }
 
-    public void TakeDamage(int Damage)
+    #region Attack
+    private void OnAttack(IDamageable target)
     {
-        Health -= Damage;
+        animator.SetTrigger(attackTrigger);
 
-        if (Health <= 0)
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+        }
+
+        lookCoroutine = StartCoroutine(LookAt(target.GetTransform()));
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
         {
             gameObject.SetActive(false);
         }
     }
-
+    #endregion
+    
     public Transform GetTransform()
     {
         return transform;

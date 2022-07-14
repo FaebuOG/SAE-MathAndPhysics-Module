@@ -5,18 +5,20 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = System.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class TitanSpawner : MonoBehaviour
 {
+   [Header("Settings")]
    public Transform Player;
    public int NumberOfEnemiesToSpawn;
    public float SpawnDelay;
-   
    public SpawnMethod EnemySpawnMethod = SpawnMethod.RoundRobin;
    
-   public List<Enemy> EnemyPrefabs = new List<Enemy>();
+   [Header("Object Pool")]
+   public List<Titan> EnemyPrefabs = new List<Titan>();
    private Dictionary<int, ObjectPool> EnemyObjectPools = new Dictionary<int, ObjectPool>();
    
    private NavMeshTriangulation triangulation;
+   
    private void Awake()
    {
       for (int i = 0; i < EnemyPrefabs.Count; i++)
@@ -24,13 +26,31 @@ public class EnemySpawner : MonoBehaviour
          EnemyObjectPools.Add(i, ObjectPool.CreateInstance(EnemyPrefabs[i], NumberOfEnemiesToSpawn));
       }
    }
-
    private void Start()
    {
       triangulation = NavMesh.CalculateTriangulation(); // expensive method
       StartCoroutine(SpawnEnemies());
    }
 
+   
+
+   #region Spawn algorithm
+   public enum SpawnMethod
+   {
+      RoundRobin,
+      Random
+   }
+   private void SpawnRoundRobinEnemy(int spawnedEnemies)
+   {
+      int spawnIndex = spawnedEnemies % EnemyPrefabs.Count;
+      DoSpawnEnemy(spawnIndex);
+   }
+   private void SpawnRandomEnemy()
+   {
+      DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count));
+   }
+   #endregion
+   
    private IEnumerator SpawnEnemies()
    {
       WaitForSeconds wait = new WaitForSeconds(SpawnDelay);
@@ -51,24 +71,13 @@ public class EnemySpawner : MonoBehaviour
          yield return wait;
       }
    }
-
-   private void SpawnRoundRobinEnemy(int spawnedEnemies)
-   {
-      int spawnIndex = spawnedEnemies % EnemyPrefabs.Count;
-      DoSpawnEnemy(spawnIndex);
-   }
-   private void SpawnRandomEnemy()
-   {
-      DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count));
-   }
-   
    private void DoSpawnEnemy(int spawnIndex)
    {
       PoolableObject poolableObject = EnemyObjectPools[spawnIndex].GetObject();
 
       if (poolableObject != null)
       {
-         Enemy enemy = poolableObject.GetComponent<Enemy>();
+         Titan titan = poolableObject.GetComponent<Titan>();
 
          NavMeshTriangulation triangulation = NavMesh.CalculateTriangulation();
 
@@ -77,11 +86,12 @@ public class EnemySpawner : MonoBehaviour
          NavMeshHit hit;
          if(NavMesh.SamplePosition(triangulation.vertices[vertexIndex], out hit, 2f, -1))
          {
-            enemy.Agent.Warp(hit.position);
-            // enemy need to get enabled and start chasing now
-            enemy.Movement.Player = Player;
-            enemy.Agent.enabled = true;
-            enemy.Movement.StartChasing();
+            titan.Agent.Warp(hit.position);
+            
+            // titan need to get enabled and start chasing now
+            titan.Movement.Player = Player;
+            titan.Agent.enabled = true;
+            titan.Movement.StartChasing();
          }
          else
          {
@@ -92,10 +102,5 @@ public class EnemySpawner : MonoBehaviour
       {
          Debug.LogError("Unable to fetch enemy of type " + spawnIndex + "from Object pool. Out of Objects?");
       }
-   }
-   public enum SpawnMethod
-   {
-      RoundRobin,
-      Random
    }
 }

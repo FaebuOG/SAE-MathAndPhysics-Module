@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))] [RequireComponent(typeof(AgentLinkMover))]
-public class EnemyMovement : MonoBehaviour
+public class TitanMovement : MonoBehaviour
 {
     public Transform Player;
     private NavMeshAgent navMeshAgent;
@@ -27,7 +27,12 @@ public class EnemyMovement : MonoBehaviour
         agentLinkMover.OnLinkStart += HandleLinkStart;
         agentLinkMover.OnLinkEnd += HandleLinkEnd; 
     }
-
+    private void Update()
+    {
+        animator.SetBool(isWalking, navMeshAgent.velocity.magnitude > 0.01f);
+    }
+    
+    
     public void StartChasing()
     {
         if (followCoroutine == null)
@@ -36,12 +41,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("called start chasing on enemy that is already chasing, this is likely a bug");
+            Debug.LogWarning("titan already chasing");
         }
-    }
-    private void Update()
-    {
-        animator.SetBool(isWalking, navMeshAgent.velocity.magnitude > 0.01f);
     }
     
     IEnumerator FollowTarget()
@@ -54,7 +55,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     
-    // Handle links from nav meshs (jumping between nav meshs)
+    #region Nav Mesh Links
+    // This is used when a nav mesh agent need to jump between 2 platforms or something.
+    // Event based
     private void HandleLinkStart()
     {
         animator.SetTrigger(jump);
@@ -64,4 +67,5 @@ public class EnemyMovement : MonoBehaviour
         animator.SetTrigger(landed);
         Debug.Log(agentLinkMover);
     }
+    #endregion
 }

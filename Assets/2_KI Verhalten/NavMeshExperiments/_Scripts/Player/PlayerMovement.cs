@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))] [RequireComponent(typeof(AgentLinkMover))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Camera Camera = null;
+    [SerializeField] private Camera camera = null;
     [SerializeField] private Animator animator;
     private NavMeshAgent navMeshAgent;
     private AgentLinkMover agentLinkMover;
@@ -16,14 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private const string landed = "landed";
     
     // Mouse 
-    private RaycastHit[] Hits = new RaycastHit[1];
+    private RaycastHit[] hits = new RaycastHit[1];
     
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         agentLinkMover = GetComponent<AgentLinkMover>();
 
-        // animation stuff
+        // animation events
         agentLinkMover.OnLinkStart += HandleLinkStart;
         agentLinkMover.OnLinkEnd += HandleLinkEnd;
     }
@@ -32,18 +32,19 @@ public class PlayerMovement : MonoBehaviour
         // Move the player with your mouse
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.RaycastNonAlloc(ray, Hits) > 0)
+            if (Physics.RaycastNonAlloc(ray, hits) > 0)
             {
-                navMeshAgent.SetDestination(Hits[0].point);
+                navMeshAgent.SetDestination(hits[0].point);
             }
         }
         
+        // Plays a running/walking animation when the Nav Mesh Agent is moving
         animator.SetBool(isWalking, navMeshAgent.velocity.magnitude > 0.01f);
     }
 
-    #region Animation
+    #region Animation Events for Nav Mesh Links
     private void HandleLinkStart()
     {
         animator.SetTrigger(jump);

@@ -7,71 +7,71 @@ using UnityEngine;
 public class AttackRadius : MonoBehaviour
 {
     public SphereCollider Collider;
-    private List<IDamageable> Damageables = new List<IDamageable>();
     public int Damage = 10;
     public float AttackDelay = 0.5f;
-    public delegate void AttackEvent(IDamageable Target);
+    public delegate void AttackEvent(IDamageable target);
     public AttackEvent OnAttack;
-    private Coroutine AttackCoroutine;
-
+    
+    private Coroutine attackCoroutine;
+    private List<IDamageable> damageables = new List<IDamageable>();
     private void Awake()
     {
         Collider = GetComponent<SphereCollider>();
     }
 
+    #region OnTrigger Events
     private void OnTriggerEnter(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
-        Debug.Log(other.gameObject.name + " entered in AttackRadius from: " + gameObject.name);
-        
+
         if (damageable != null)
         {
-            Damageables.Add(damageable);
+            damageables.Add(damageable);
 
-            if (AttackCoroutine == null)
+            if (attackCoroutine == null)
             {
-                AttackCoroutine = StartCoroutine(Attack());
+                attackCoroutine = StartCoroutine(Attack());
             }
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            Damageables.Remove(damageable);
-            if (Damageables.Count == 0)
+            damageables.Remove(damageable);
+            if (damageables.Count == 0)
             {
-                StopCoroutine(AttackCoroutine);
-                AttackCoroutine = null;
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
             }
         }
     }
-
+    #endregion
+    
     private IEnumerator Attack()
     {
         // Attack delay
-        WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
-        yield return Wait;
+        WaitForSeconds wait = new WaitForSeconds(AttackDelay);
+        yield return wait;
 
         // for the closest target
         IDamageable closestDamageable = null;
         float closestDistance = float.MaxValue;
 
-        // as long as 
-        while (Damageables.Count > 0)
+        // as long as there are Titans in the attack radius
+        while (damageables.Count > 0)
         {
             // gets the closest target
-            for (int i = 0; i < Damageables.Count; i++)
+            for (int i = 0; i < damageables.Count; i++)
             {
-                Transform damageableTransform = Damageables[i].GetTransform();
+                Transform damageableTransform = damageables[i].GetTransform();
                 float distance = Vector3.Distance(transform.position, damageableTransform.position);
 
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestDamageable = Damageables[i];
+                    closestDamageable = damageables[i];
                 }
             }
 
@@ -84,16 +84,16 @@ public class AttackRadius : MonoBehaviour
             closestDamageable = null;
             closestDistance = float.MaxValue;
 
-            yield return Wait;
+            yield return wait;
 
-            Damageables.RemoveAll(DisabledDamageables);
+            // removes all the possible targets and cleans it for the next iteration
+            damageables.RemoveAll(DisabledDamageables);
         }
 
-        AttackCoroutine = null;
+        attackCoroutine = null;
     }
-
-    private bool DisabledDamageables(IDamageable Damageable)
+    private bool DisabledDamageables(IDamageable damageable)
     {
-        return Damageable != null && !Damageable.GetTransform().gameObject.activeSelf;
+        return damageable != null && !damageable.GetTransform().gameObject.activeSelf;
     }
 }

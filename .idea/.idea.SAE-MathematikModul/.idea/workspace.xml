@@ -16,14 +16,28 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5cba477a2f184e40b2612e541e79baf729200/33/3f0f26b5/Event.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridCreator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01fdc326fa5147d6932461a4a4f80d6a810600/92/703ba78e/HostView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/Assets/CellularAutomata/Scripts/GridContainer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5cba477a2f184e40b2612e541e79baf729200/1a/eb03862e/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TSC/Assets/_TSC/_Scripts/Match/Powerpoints/SpawnPowerfields.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/EnemyScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/IDamagable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Downloads/MovementPoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/MovementController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01fdc326fa5147d6932461a4a4f80d6a810600/bf/b73906fc/EditorCompilationInterface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Player/PlayerCameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dafed2d51d694b248f56d66f23356b0b157800/3c/ea96b556/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/50ab5215238843e7b3daac9a1164027e3a00/b6/a98a363f/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8066d84f4ff4ebdbdd8613da6431ecb6e00/9e/1cf76ca1/Canvas.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01fdc326fa5147d6932461a4a4f80d6a810600/b0/53f56e51/RootEditorUtils.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dafed2d51d694b248f56d66f23356b0b157800/cc/5e7ad530/RenderPipelineManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01fdc326fa5147d6932461a4a4f80d6a810600/76/cc8e8180/PopupWindowWithoutFocus.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/EnemyScriptableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dafed2d51d694b248f56d66f23356b0b157800/40/2b11ad6c/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/MovementPoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dafed2d51d694b248f56d66f23356b0b157800/21/924c45d6/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dafed2d51d694b248f56d66f23356b0b157800/3a/ecc79415/ScriptableRuntimeReflectionSystemWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/01fdc326fa5147d6932461a4a4f80d6a810600/64/85a69123/EditorApplication.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,10 +69,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14688">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="14688" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -91,7 +105,7 @@
       <workItem from="1657363001959" duration="4160000" />
       <workItem from="1657479251389" duration="955000" />
       <workItem from="1657639845769" duration="129000" />
-      <workItem from="1657668156020" duration="7333000" />
+      <workItem from="1657668156020" duration="14256000" />
     </task>
     <servers />
   </component>
@@ -103,6 +117,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/AttackRadius.cs</url>
+          <line>96</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/2_KI Verhalten/NavMeshExperiments/_Scripts/Enemy/AttackRadius.cs" initialLine="96" containingFunctionPresentation="method 'DisabledDamageables'">
+            <startOffsets>
+              <option value="2794" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2872" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

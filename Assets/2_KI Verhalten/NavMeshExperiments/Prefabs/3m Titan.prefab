@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 0}
   Damage: 10
-  AttackDelay: 0.5
+  AttackDelay: 2
 --- !u!1 &5921052386097139478
 GameObject:
   m_ObjectHideFlags: 0
