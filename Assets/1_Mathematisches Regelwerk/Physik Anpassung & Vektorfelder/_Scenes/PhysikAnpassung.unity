@@ -32047,7 +32047,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 226068702}
         m_TargetAssemblyTypeName: WindArea, Assembly-CSharp
-        m_MethodName: IncreaseStrenght
+        m_MethodName: IncreaseStrength
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34399,7 +34399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 226068702}
         m_TargetAssemblyTypeName: WindArea, Assembly-CSharp
-        m_MethodName: DecreaseStrenght
+        m_MethodName: DecreaseStrength
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

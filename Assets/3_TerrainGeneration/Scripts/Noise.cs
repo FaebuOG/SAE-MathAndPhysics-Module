@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Noise
 {
+    // Perlin Noise
     public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, float scale)
     {
         float[,] noiseMap = new float[mapWidth, mapHeight];
@@ -22,7 +23,6 @@ public static class Noise
                 noiseMap[x, y] = perlinValue;
             }
         }
-
         return noiseMap;
     }
     

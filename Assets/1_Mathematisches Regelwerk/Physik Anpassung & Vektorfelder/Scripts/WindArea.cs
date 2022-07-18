@@ -13,7 +13,7 @@ public class WindArea : MonoBehaviour
     [SerializeField] private int knots_Z = 0;
     
     [SerializeField] private TextMeshProUGUI knotsStrenght;
-    public void IncreaseStrenght()
+    public void IncreaseStrength()
     {
         if (knots_X < 1000)
         {
@@ -24,7 +24,7 @@ public class WindArea : MonoBehaviour
             knotsStrenght.text = knots_X.ToString();
         }
     }
-    public void DecreaseStrenght()
+    public void DecreaseStrength()
     {
         if (knots_X > -1000)
         {
