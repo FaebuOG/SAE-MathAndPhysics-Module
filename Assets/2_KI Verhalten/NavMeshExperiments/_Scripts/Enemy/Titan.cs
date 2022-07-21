@@ -9,13 +9,14 @@ public class Titan : PoolableObject, IDamageable
     public TitanMovement Movement;
     public NavMeshAgent Agent;
     public EnemyScriptableObject EnemyScriptableObject;
-    public int Health = 100;
+    public int Health;
 
     private Coroutine lookCoroutine;
     private const string attackTrigger = "attack";
 
     private void Awake()
     {
+        // Events
         AttackRadius.OnAttack += OnAttack;
     }
 
