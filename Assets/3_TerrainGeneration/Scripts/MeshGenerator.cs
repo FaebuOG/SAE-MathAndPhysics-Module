@@ -39,22 +39,22 @@ public class MeshGenerator
 public class MeshData
 {
    public Vector3[] Vertices;
-   public int[] Triangles;
    public Vector2[] UVs;
+   private int[] triangles;
    private int triangleIndex;
    
    public MeshData(int meshWidth, int meshHeight)
    {
       Vertices = new Vector3[meshWidth * meshHeight];
       UVs = new Vector2[meshHeight * meshHeight];
-      Triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6];
+      triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6];
    }
 
    public void AddTriangles(int a, int b, int c)
    {
-      Triangles[triangleIndex] = a;
-      Triangles[triangleIndex + 1] = b;
-      Triangles[triangleIndex + 2] = c;
+      triangles[triangleIndex] = a;
+      triangles[triangleIndex + 1] = b;
+      triangles[triangleIndex + 2] = c;
       triangleIndex += 3;
    }
 
@@ -62,7 +62,7 @@ public class MeshData
    {
       Mesh mesh = new Mesh();
       mesh.vertices = Vertices;
-      mesh.triangles = Triangles;
+      mesh.triangles = triangles;
       mesh.uv = UVs;
       mesh.RecalculateNormals();
       return mesh;

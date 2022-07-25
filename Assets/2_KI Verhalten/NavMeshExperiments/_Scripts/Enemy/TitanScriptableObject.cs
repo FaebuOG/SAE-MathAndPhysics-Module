@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [CreateAssetMenu (fileName = "Enemy Configuration", menuName = "ScriptableObjects/Enemy Configuration")]
-public class EnemyScriptableObject : ScriptableObject
+public class TitanScriptableObject : ScriptableObject
 {
     // Enemy Stats
     public int Health = 100;

@@ -8,7 +8,7 @@ public class Titan : PoolableObject, IDamageable
     public Animator Animator;
     public TitanMovement Movement;
     public NavMeshAgent Agent;
-    public EnemyScriptableObject EnemyScriptableObject;
+    private TitanScriptableObject titanScriptableObject;
     public int Health;
 
     private Coroutine lookCoroutine;
@@ -83,23 +83,23 @@ public class Titan : PoolableObject, IDamageable
     // Gets all the values from the Titan Scriptable Object
     public virtual void SetupAgentFromConfiguration()
     {
-        Agent.acceleration = EnemyScriptableObject.Acceleration;
-        Agent.angularSpeed = EnemyScriptableObject.AngularSpeed;
-        Agent.areaMask = EnemyScriptableObject.AreaMask;
-        Agent.avoidancePriority = EnemyScriptableObject.AvoidancePriority;
-        Agent.baseOffset = EnemyScriptableObject.BaseOffset;
-        Agent.height = EnemyScriptableObject.Height;
-        Agent.obstacleAvoidanceType = EnemyScriptableObject.ObstacleAvoidanceType;
-        Agent.radius = EnemyScriptableObject.Radius;
-        Agent.speed = EnemyScriptableObject.Speed;
-        Agent.stoppingDistance = EnemyScriptableObject.StoppingDistance;
+        Agent.acceleration = titanScriptableObject.Acceleration;
+        Agent.angularSpeed = titanScriptableObject.AngularSpeed;
+        Agent.areaMask = titanScriptableObject.AreaMask;
+        Agent.avoidancePriority = titanScriptableObject.AvoidancePriority;
+        Agent.baseOffset = titanScriptableObject.BaseOffset;
+        Agent.height = titanScriptableObject.Height;
+        Agent.obstacleAvoidanceType = titanScriptableObject.ObstacleAvoidanceType;
+        Agent.radius = titanScriptableObject.Radius;
+        Agent.speed = titanScriptableObject.Speed;
+        Agent.stoppingDistance = titanScriptableObject.StoppingDistance;
         
-        Movement.UpdateRate = EnemyScriptableObject.AIUpdateInterval;
+        Movement.UpdateRate = titanScriptableObject.AIUpdateInterval;
 
-        Health = EnemyScriptableObject.Health;
+        Health = titanScriptableObject.Health;
 
-        (AttackRadius.Collider == null ? AttackRadius.GetComponent<SphereCollider>() : AttackRadius.Collider).radius = EnemyScriptableObject.AttackRadius;
-        AttackRadius.AttackDelay = EnemyScriptableObject.AttackDelay;
-        AttackRadius.Damage = EnemyScriptableObject.Damage;
+        (AttackRadius.Collider == null ? AttackRadius.GetComponent<SphereCollider>() : AttackRadius.Collider).radius = titanScriptableObject.AttackRadius;
+        AttackRadius.AttackDelay = titanScriptableObject.AttackDelay;
+        AttackRadius.Damage = titanScriptableObject.Damage;
     }
 }

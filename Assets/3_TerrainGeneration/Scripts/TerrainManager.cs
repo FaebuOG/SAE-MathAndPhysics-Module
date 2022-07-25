@@ -9,22 +9,32 @@ public class TerrainManager : MonoBehaviour
         DrawMesh
     }
     [SerializeField] private DrawMode drawMode;
+
+    private TerrainScriptableObject terrainScriptableObject;
     
     [Header("Perlin Noise Values")]
     [Range(0,100)] [SerializeField] private int terrainSize;
+    [Tooltip("Changes the noise from perlin noise")]
     [Range(0,100)] [SerializeField] private float noiseScale;
+    [Tooltip("Persistance controls the amplitude from an octave")]
     [Range(0,  1)] [SerializeField] private float persistance;
+    [Tooltip("Lacunarity controls the frequency from an octave")]
     [Range(0,  5)] [SerializeField] private float lacunarity;
+    [Tooltip("Use more octaves for more detail")]
     [Range(0, 10)] [SerializeField] private int octaves;
     private int terrainWidth;
     private int terrainHeight;
     
     [Header("Mesh Settings")]
+    [Tooltip("Changes the terrain height")]
     [SerializeField] private float meshHeightMultiplier;
+    [Tooltip("Changes how much the Mesh Height Multiplier affects the mesh at certain regions")]
     [SerializeField] private AnimationCurve meshHeightCurve;
     
     [Header("Terrain Settings")]
+    [Tooltip("Color settings for different height regions")]
     [SerializeField] private TerrainType[] regions;
+    [Tooltip("Moves the landscape with offset values")]
     [SerializeField] private Vector2 offset;
     [SerializeField] private int seed;
     
