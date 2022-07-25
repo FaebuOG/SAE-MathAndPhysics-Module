@@ -21,6 +21,7 @@ public class TerrainManagerEditor : Editor
         }
         if (GUILayout.Button("Generate Map"))
         {
+            terrainManager.SetupTerrainFromConfiguration();
             terrainManager.GenerateTerrain();
         }
     }

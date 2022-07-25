@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TerrainManager : MonoBehaviour
@@ -9,18 +10,12 @@ public class TerrainManager : MonoBehaviour
         DrawMesh
     }
     [SerializeField] private DrawMode drawMode;
-
-    private TerrainScriptableObject terrainScriptableObject;
+    [SerializeField] private TerrainScriptableObject terrainScriptableObject;
     
-    [Header("Perlin Noise Values")]
     [Range(0,100)] [SerializeField] private int terrainSize;
-    [Tooltip("Changes the noise from perlin noise")]
     [Range(0,100)] [SerializeField] private float noiseScale;
-    [Tooltip("Persistance controls the amplitude from an octave")]
     [Range(0,  1)] [SerializeField] private float persistance;
-    [Tooltip("Lacunarity controls the frequency from an octave")]
     [Range(0,  5)] [SerializeField] private float lacunarity;
-    [Tooltip("Use more octaves for more detail")]
     [Range(0, 10)] [SerializeField] private int octaves;
     private int terrainWidth;
     private int terrainHeight;
@@ -31,15 +26,42 @@ public class TerrainManager : MonoBehaviour
     [Tooltip("Changes how much the Mesh Height Multiplier affects the mesh at certain regions")]
     [SerializeField] private AnimationCurve meshHeightCurve;
     
-    [Header("Terrain Settings")]
-    [Tooltip("Color settings for different height regions")]
     [SerializeField] private TerrainType[] regions;
-    [Tooltip("Moves the landscape with offset values")]
     [SerializeField] private Vector2 offset;
     [SerializeField] private int seed;
     
     [Header("Inspector")] // for the editor
     public bool AutoUpdate;
+
+    public void Start()
+    {
+        GenerateTerrain();
+    }
+    
+    #region Enable/Disable
+    public virtual void OnEnable()
+    {
+        SetupTerrainFromConfiguration();
+    }
+    // Gets all the values from the Titan Scriptable Object
+    public virtual void SetupTerrainFromConfiguration()
+    {
+        terrainSize = terrainScriptableObject.TerrainSize;
+        noiseScale = terrainScriptableObject.NoiseScale;
+        persistance = terrainScriptableObject.Persistance;
+        lacunarity = terrainScriptableObject.Lacunarity;
+        octaves = terrainScriptableObject.Octaves;
+    
+        meshHeightMultiplier = terrainScriptableObject.MeshHeightMultiplier;
+        meshHeightCurve = terrainScriptableObject.MeshHeightCurve;
+    
+        regions = terrainScriptableObject.Regions;
+        offset = terrainScriptableObject.Offset;
+        seed = terrainScriptableObject.Seed;
+    }
+    #endregion
+
+    
     
     public void GenerateTerrain()
     {
@@ -99,6 +121,8 @@ public class TerrainManager : MonoBehaviour
         if (octaves < 0)
             octaves = 0;
     }
+    
+    
 }
 
 [System.Serializable]
