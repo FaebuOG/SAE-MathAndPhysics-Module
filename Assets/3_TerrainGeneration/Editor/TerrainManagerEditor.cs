@@ -19,6 +19,8 @@ public class TerrainManagerEditor : Editor
             }
                 
         }
+        
+        // Buttons
         if (GUILayout.Button("Generate Map"))
         {
             terrainManager.SetupTerrainFromConfiguration();

@@ -43,7 +43,8 @@ public class TerrainManager : MonoBehaviour
     {
         SetupTerrainFromConfiguration();
     }
-    // Gets all the values from the Titan Scriptable Object
+    
+    // Gets all the values from the Terrain Scriptable Object
     public virtual void SetupTerrainFromConfiguration()
     {
         terrainSize = terrainScriptableObject.TerrainSize;
@@ -60,12 +61,11 @@ public class TerrainManager : MonoBehaviour
         seed = terrainScriptableObject.Seed;
     }
     #endregion
-
-    
     
     public void GenerateTerrain()
     {
-        // Map (width & height) needs to be identical 
+        // Map (width & height) needs to be identical and should be controllable
+        // with only one slider in the inspector.
         terrainWidth = terrainSize;
         terrainHeight = terrainSize;
         
@@ -108,9 +108,9 @@ public class TerrainManager : MonoBehaviour
         
     }
 
+    // Limits and instant fix
     private void OnValidate()
     {
-        // Limits and instant fix
         if (terrainWidth < 1)
             terrainWidth = 1;
         if (terrainHeight < 1)
@@ -120,8 +120,6 @@ public class TerrainManager : MonoBehaviour
         if (octaves < 0)
             octaves = 0;
     }
-    
-    
 }
 
 [System.Serializable]

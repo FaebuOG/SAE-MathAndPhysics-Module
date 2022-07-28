@@ -18,20 +18,21 @@ public class MeshGenerator
       {
          for (int x = 0; x < width; x++)
          {
+            // Spawns the vertices at the correct positions and uses the height settings from the height curve and multiplier
+            // Makes basically a grid
             meshData.Vertices[vertexIndex] = new Vector3(topLeftX + x, heightCurve.Evaluate(heightMap [x, y]) * heightMultiplier, topLeftZ - y);
             meshData.UVs[vertexIndex] = new Vector2(x / (float) width, y/(float)height);
             
+            // When we are in the array and not at (for Example: at the right edge of the array)
+            // -> We can spawn the Polygons in the grid as described in the learn journal.
             if (x < width - 1 && y < height - 1)
             {
-               
                meshData.AddTriangles(vertexIndex, vertexIndex + width + 1, vertexIndex + width); // 1. Triangle
                meshData.AddTriangles(vertexIndex + width + 1, vertexIndex, vertexIndex + 1); // 2. Triangle
             }
-            
             vertexIndex++;
          }
       }
-
       return meshData;
    }
 }
@@ -51,6 +52,7 @@ public class MeshData
       triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6]; // count of all the triangles
    }
 
+   // gives the right index for the polygons
    public void AddTriangles(int a, int b, int c)
    {
       triangles[triangleIndex] = a;
@@ -59,6 +61,7 @@ public class MeshData
       triangleIndex += 3;
    }
    
+   // creates mesh with our parameters
    public Mesh CreateMesh()
    {
       Mesh mesh = new Mesh();
