@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034f127384f8d42b6b1c3531a4dad58d, type: 3}
+  m_Name: SnowBiome
+  m_EditorClassIdentifier: 
+  TerrainSize: 100
+  NoiseScale: 100
+  Persistance: 0.6
+  Lacunarity: 2.26
+  Octaves: 4
+  MeshHeightMultiplier: 150
+  MeshHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.40030405
+      value: 0.0018083509
+      inSlope: 0.035558984
+      outSlope: 0.035558984
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.24739265
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Regions:
+  - Name: Frozen Lake
+    Height: 0.4
+    Colour: {r: 0.51699895, g: 0.5432474, b: 0.6981132, a: 0}
+  - Name: Snow Dirty
+    Height: 0.6
+    Colour: {r: 0.5585173, g: 0.62940747, b: 0.7264151, a: 0}
+  - Name: Snow
+    Height: 1
+    Colour: {r: 1, g: 1, b: 1, a: 0}
+  Offset: {x: 0, y: 0}
+  Seed: 0

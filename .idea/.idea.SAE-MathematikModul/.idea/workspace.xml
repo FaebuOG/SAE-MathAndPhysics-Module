@@ -143,7 +143,12 @@
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
+    <expand>
+      <path>
+        <item name="SAE-MathematikModul" type="b2602c69:ProjectViewProjectNode" />
+        <item name="rider.module" type="47feb1d3:ProjectViewModuleNode" />
+      </path>
+    </expand>
     <select />
   </component>
 </project>

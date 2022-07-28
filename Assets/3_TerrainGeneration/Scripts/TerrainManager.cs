@@ -72,7 +72,7 @@ public class TerrainManager : MonoBehaviour
         // Create a noise map with parameters from inspector
         float[,] noiseMap = Noise.GenerateNoiseMap(terrainWidth, terrainHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
 
-        // Terrain Type
+        // Terrain type color
         Color[] colourMap = new Color[terrainWidth * terrainHeight];
         for (int y = 0; y < terrainHeight; y++)
         {
@@ -84,7 +84,6 @@ public class TerrainManager : MonoBehaviour
                     if (currentHeight <= regions[i].Height)
                     {
                         colourMap[y * terrainWidth + x] = regions[i].Colour;
-                        
                         break;
                     }
                 }

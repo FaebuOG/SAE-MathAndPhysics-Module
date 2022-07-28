@@ -43,11 +43,12 @@ public class MeshData
    private int[] triangles;
    private int triangleIndex;
    
+   // gets the correct mesh data based on given width and height to CreateMesh()
    public MeshData(int meshWidth, int meshHeight)
    {
       Vertices = new Vector3[meshWidth * meshHeight];
       UVs = new Vector2[meshHeight * meshHeight];
-      triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6];
+      triangles = new int[(meshWidth - 1) * (meshHeight - 1) * 6]; // count of all the triangles
    }
 
    public void AddTriangles(int a, int b, int c)
@@ -57,7 +58,7 @@ public class MeshData
       triangles[triangleIndex + 2] = c;
       triangleIndex += 3;
    }
-
+   
    public Mesh CreateMesh()
    {
       Mesh mesh = new Mesh();
