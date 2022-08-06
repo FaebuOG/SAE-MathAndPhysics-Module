@@ -50,6 +50,9 @@ public class GridContainer : MonoBehaviour
                                         {
                                             for (int neighbourX = widthX - 2; neighbourX < widthX + 3; neighbourX++)
                                             {
+                                                
+                                                
+                                                
                                                 if (!(neighbourY == heightY && neighbourX == widthX || neighbourY < 0 || neighbourY > height - 1 || neighbourX < 0 || neighbourX > width - 1))
                                                 {
                                                     if (grid[neighbourX, neighbourY].State == Cell.States.Empty)
